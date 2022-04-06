@@ -1,0 +1,18 @@
+La api me limita a 100 datos por consulta, por lo que si quiero obtener todos los datos debo: 
+Request 1: Offset 0, Limit 100
+Request 2: Offset 100, Limit 100
+Request 3: Offset 200, Limit 100
+Request 4: Offset 300, Limit 100
+Request 5: Offset 400, Limit 100
+Request 6: Offset 500, Limit 100
+Request 7: Offset 600, Limit 100
+Request 8: Offset 700, Limit 100
+Request 9: Offset 800, Limit 100
+Request 10: Offset 900, Limit 100 hasta que se acaben los datos.
+
+Sobre la card de los carácteres mostrar los siguientes botone:
+Comics
+Events
+Series
+Stories
+Estos datos ya los tenemos en el servicio para la obtención de datos
