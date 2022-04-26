@@ -10,16 +10,17 @@ export class Tab1Page {
 
   // TODO: Crear y tipar el modelo de heróes
   heroes: any;
-  constructor(private heroesService: HeroesService) { }
-
-  ionViewWillEnter() {
-    this.getHeroes();
+  constructor(private heroesService: HeroesService) {
   }
 
-  getHeroes() {
-    this.heroesService.getAllHeroes().subscribe((res: any) => {
-      this.heroes = res.data.results
-      console.log(this.heroes);
-    });
+  async ionViewWillEnter() {
+    this.heroes = await this.heroesService.getAllHeroes();
+
   }
+
+  getImagen(data) {
+    let imagen = `${data.path}.${data.extension}`;
+    return imagen;
+  }
+
 }

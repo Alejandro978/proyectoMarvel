@@ -11,15 +11,15 @@ export class Tab2Page {
   comics: any;
   constructor(private comicService: ComicsService) { }
 
-  ionViewWillEnter() {
-    this.getComics();
+  async ionViewWillEnter() {
+    this.comics = await this.comicService.getAllComics();
+    console.log(this.comics);
+    
   }
 
-  getComics() {
-    this.comicService.getAllComics().subscribe((res: any) => {
-      this.comics = res.data.results;
-      console.log(this.comics);
-    });
-  }
 
+  getImagen(data) {
+    let imagen = `${data.path}.${data.extension}`;
+    return imagen;
+  }
 }

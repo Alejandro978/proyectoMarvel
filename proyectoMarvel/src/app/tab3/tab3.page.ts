@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { HistoriasService } from '../tabs/shared/services/historias.service';
+import { EventosService } from '../tabs/shared/services/eventos.service';
 
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
+
 export class Tab3Page {
 
   // TODO: Crear y tipar el modelo de historias
-  historias: any;
+  eventos: any;
 
+  constructor(private eventosService: EventosService) { }
 
-  constructor(private historiasService: HistoriasService) { }
-
-  ionViewWillEnter() {
-    this.getHistorias();
+  async ionViewWillEnter() {
+    this.eventos = await this.eventosService.getAllEventos();
+    console.log(this.eventos);
+    
   }
 
-  getHistorias() {
-    this.historiasService.getAllHitorias().subscribe((res: any) => {
-      this.historias = res.data.results;
-      console.log(this.historias);
-    });
+  getImagen(data) {
+    let imagen = `${data.path}.${data.extension}`;
+    return imagen;
   }
 
 }

@@ -7,13 +7,13 @@ const URL = environment.url;
 @Injectable({
   providedIn: 'root'
 })
-export class ComicsService {
+export class EventosService {
 
   constructor(private http: HttpClient) { }
 
-  // Recupera toda la información de los comics
-  async getAllComics() {
-    const data: any = await this.http.get(`${URL}/comics?ts=1&apikey=${environment.publicKey}&hash=${environment.hash}&limit=100`).toPromise();
+  // Recupera toda la información de las historias
+  async getAllEventos() {
+    const data: any = await this.http.get(`${URL}/events?ts=1&apikey=${environment.publicKey}&hash=${environment.hash}&limit=100`).toPromise();
     return data.data.results;
   }
 }
