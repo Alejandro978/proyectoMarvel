@@ -13,8 +13,6 @@ export class Tab2Page {
 
   async ionViewWillEnter() {
     this.comics = await this.comicService.getAllComics();
-    console.log(this.comics);
-    
   }
 
 

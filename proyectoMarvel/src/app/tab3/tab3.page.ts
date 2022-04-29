@@ -16,8 +16,6 @@ export class Tab3Page {
 
   async ionViewWillEnter() {
     this.eventos = await this.eventosService.getAllEventos();
-    console.log(this.eventos);
-    
   }
 
   getImagen(data) {
