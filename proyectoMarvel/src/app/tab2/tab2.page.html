@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="dark">
     <ion-title slot="start">Cómics</ion-title>
-    <ion-searchbar slot="secondary" placeholder="Buscar"></ion-searchbar>
+    <ion-searchbar slot="secondary" placeholder="Buscar" (ionChange)="onSearchChange($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -27,5 +27,10 @@
 
     </ion-row>
   </ion-grid>
+
+  <ion-infinite-scroll threshold="150px" (ionInfinite)="siguientes($event)">
+    <ion-infinite-scroll-content>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 </ion-content>

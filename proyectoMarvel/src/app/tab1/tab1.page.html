@@ -1,60 +1,34 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="dark">
     <ion-title slot="start">Héroes</ion-title>
-    <ion-searchbar slot="secondary" placeholder="Buscar"></ion-searchbar>
+    <ion-searchbar slot="secondary" placeholder="Buscar" (ionChange)="onSearchChange($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-
   <ion-grid class="background">
+
     <ion-row>
-      <ion-col *ngFor="let heroe of heroes" size="6">
+      <ion-col *ngFor="let heroe of heroes" size="12">
         <ion-card>
-          <ion-grid>
-
-            <ion-row>
-
-              <ion-col size="12">
-                <ion-card-header>
-                  <ion-avatar>
-                    <img src="{{getImagen(heroe.thumbnail)}}" />
-                  </ion-avatar>
-                </ion-card-header>
-              </ion-col>
-
-              <ion-col size="12">
-                <ion-card-content>
-                  <ion-row>
-                    <ion-text color="light">
-                      <h2><b>{{heroe.name}}</b></h2>
-                    </ion-text>
-                  </ion-row>
-
-                  <!-- <ion-row>
-                    {{heroe.name}}
-                  </ion-row> -->
-                </ion-card-content>
-              </ion-col>
-
-            </ion-row>
-          </ion-grid>
-
+          <img src="{{getImagen(heroe.thumbnail)}}" />
+          <ion-card-header>
+            <ion-card-title color="light">{{heroe.name}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content color="light">
+            <ion-text color="light">
+              {{heroe.description}}
+            </ion-text>
+          </ion-card-content>
         </ion-card>
       </ion-col>
-
     </ion-row>
   </ion-grid>
 
 
-  <!-- <ion-item>
-    <ion-avatar slot="start">
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-    </ion-avatar>
-    <ion-label>Item Avatar</ion-label>
-  </ion-item> -->
-
-
+  <ion-infinite-scroll threshold="150px" (ionInfinite)="siguientes($event)">
+    <ion-infinite-scroll-content>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 </ion-content>

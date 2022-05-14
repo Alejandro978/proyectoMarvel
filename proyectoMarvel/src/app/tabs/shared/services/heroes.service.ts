@@ -12,10 +12,9 @@ export class HeroesService {
   constructor(private http: HttpClient) { }
 
   //Recupera toda la información de los héroes
-  async getAllHeroes() {
-    const data: any = await this.http.get(`${URL}/characters?ts=1&apikey=${environment.publicKey}&hash=${environment.hash}&limit=10`).toPromise();
-    console.log(data.data.results);
-    return data.data.results;
+  getAllHeroes(offset, textoBusqueda?) {
+    return textoBusqueda === null || textoBusqueda === undefined ? this.http.get(`${URL}/characters?ts=1&apikey=${environment.publicKey}&hash=${environment.hash}&limit=50&offset=${offset}`)
+      : this.http.get(`${URL}/characters?ts=1&apikey=${environment.publicKey}&hash=${environment.hash}&limit=50&offset=${offset}&nameStartsWith=${textoBusqueda}`);
   }
 
 }
