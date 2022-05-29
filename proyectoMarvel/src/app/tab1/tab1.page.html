@@ -1,16 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="dark">
-    <ion-title slot="start">Héroes</ion-title>
-    <ion-searchbar slot="secondary" placeholder="Buscar" (ionChange)="onSearchChange($event)"></ion-searchbar>
+    <ion-buttons>
+      <ion-button (click)="toggleMenu()">
+        <ion-icon slot="end" name="menu"></ion-icon>
+      </ion-button>
+
+      <ion-searchbar slot="end" placeholder="Buscar" (ionChange)="onSearchChange($event)"></ion-searchbar>
+      <ion-title slot="start">Héroes</ion-title>
+    </ion-buttons>
+  
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-grid class="background">
 
-    <ion-row>
-      <ion-col *ngFor="let heroe of heroes" size="12">
-        <ion-card>
+    <ion-row class>
+      <ion-col *ngFor="let heroe of heroes" size-md="4" size-xs="12">
+        <ion-card style="height:537px">
           <img src="{{getImagen(heroe.thumbnail)}}" />
           <ion-card-header>
             <ion-card-title color="light">{{heroe.name}}</ion-card-title>

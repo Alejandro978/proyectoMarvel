@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
 import { ComicsService } from '../tabs/shared/services/comics.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class Tab2Page {
   loading: HTMLIonLoadingElement;
 
   constructor(private comicService: ComicsService,
-    private loadingCtrl: LoadingController) { }
+    private loadingCtrl: LoadingController,
+    private menuCtrl: MenuController) { }
 
   async ionViewWillEnter() {
     this.siguientes();
@@ -62,5 +63,11 @@ export class Tab2Page {
       }
       this.ocultarLoading();
     });
+  }
+
+
+  
+  toggleMenu() {
+    this.menuCtrl.toggle();
   }
 }

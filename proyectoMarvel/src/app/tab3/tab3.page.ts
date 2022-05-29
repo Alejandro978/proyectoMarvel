@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
 import { EventosService } from '../tabs/shared/services/eventos.service';
 
 @Component({
@@ -17,7 +17,8 @@ export class Tab3Page {
   loading: HTMLIonLoadingElement;
 
   constructor(private eventosService: EventosService,
-    private loadingCtrl: LoadingController) { }
+    private loadingCtrl: LoadingController,
+    private menuCtrl: MenuController) { }
 
   async ionViewWillEnter() {
     this.siguientes();
@@ -65,6 +66,12 @@ export class Tab3Page {
       }
       this.ocultarLoading();
     });
+  }
+
+
+  
+  toggleMenu() {
+    this.menuCtrl.toggle();
   }
 
 }

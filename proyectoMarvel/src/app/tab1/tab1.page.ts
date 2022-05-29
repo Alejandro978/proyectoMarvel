@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
 import { HeroesService } from '../tabs/shared/services/heroes.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class Tab1Page {
   textoBusqueda = null;
   loading: HTMLIonLoadingElement;
   constructor(private heroesService: HeroesService,
-    private loadingCtrl: LoadingController) {
+    private loadingCtrl: LoadingController,
+    private menuCtrl: MenuController) {
   }
 
   ionViewWillEnter() {
@@ -55,6 +56,7 @@ export class Tab1Page {
           this.heroes.push(heroe);
         }
       });
+
       this.offset = this.offset + 50;
 
       if (event) {
@@ -65,5 +67,9 @@ export class Tab1Page {
       }
       this.ocultarLoading();
     });
+  }
+
+  toggleMenu() {
+    this.menuCtrl.toggle();
   }
 }
