@@ -32,6 +32,7 @@ export class Tab2Page {
 
   getImagen(data) {
     let imagen = `${data.path}.${data.extension}`;
+    imagen = imagen.replace('http','https');
     return imagen;
   }
 

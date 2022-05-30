@@ -1,5 +1,7 @@
 {
   "name": "proyectoMarvel",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -5,10 +5,11 @@
         <ion-icon slot="end" name="menu"></ion-icon>
       </ion-button>
 
-      <ion-searchbar slot="end" placeholder="Buscar" (ionChange)="onSearchChange($event)"></ion-searchbar>
+      <ion-searchbar debounce="1000" slot="end" placeholder="Buscar" (ionChange)="onSearchChange($event)">
+      </ion-searchbar>
       <ion-title slot="start">Cómics</ion-title>
     </ion-buttons>
-  
+
   </ion-toolbar>
 </ion-header>
 
@@ -18,7 +19,7 @@
       <ion-col *ngFor="let comic of comics" size-md="12" size-xs="12">
         <ion-card>
           <ion-card>
-            <img src="{{getImagen(comic.thumbnail)}}" />
+            <ion-img [src]=getImagen(comic.thumbnail) style="height:320px; width:320px; "></ion-img>
             <ion-card-header>
               <ion-card-title color="light">{{comic.title}}</ion-card-title>
             </ion-card-header>

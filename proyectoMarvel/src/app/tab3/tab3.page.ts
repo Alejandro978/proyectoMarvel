@@ -26,6 +26,7 @@ export class Tab3Page {
 
   getImagen(data) {
     let imagen = `${data.path}.${data.extension}`;
+    imagen = imagen.replace('http','https');
     return imagen;
   }
 
@@ -56,7 +57,7 @@ export class Tab3Page {
           this.eventos.push(evento);
         }
       });
-      this.offset = this.offset + 50;
+      this.offset = this.offset + 10;
 
       if (event) {
         event.target.complete();

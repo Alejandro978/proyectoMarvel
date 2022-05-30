@@ -14,9 +14,12 @@ export class Tab1Page {
   offset = 0;
   textoBusqueda = null;
   loading: HTMLIonLoadingElement;
+  data = { src: '' };
   constructor(private heroesService: HeroesService,
     private loadingCtrl: LoadingController,
     private menuCtrl: MenuController) {
+    this.data.src = 'https://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg';
+
   }
 
   ionViewWillEnter() {
@@ -25,6 +28,7 @@ export class Tab1Page {
 
   getImagen(data) {
     let imagen = `${data.path}.${data.extension}`;
+    imagen = imagen.replace('http','https');
     return imagen;
   }
 
